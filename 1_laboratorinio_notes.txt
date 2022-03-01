@@ -1,0 +1,10 @@
+Per laborus naudosim metodus.
+
+Matlab, galima naudot Python.
+
+Reikes pateikt ataskaita per Moodle sistema.
+
+
+Audioread leis gaut kokybe (3 punktas 1 lab)
+
+Geriau naudot sablona VGTU.
