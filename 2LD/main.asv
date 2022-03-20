@@ -26,9 +26,9 @@ plot(y_pwr);
 
 
 
-% rate = zerocrossrate(frames);
-% subplot(2, 2, 3);
-% plot(rate);
+rate = zerocrossrate(frames);
+subplot(2, 2, 3);
+plot(rate);
 
 frameSize = size(frames);
 frameRow = frameSize(1);
@@ -39,8 +39,8 @@ for column = 1:frameColumn
     val = 0;
     for row = 2:frameRow
 
-        xn2 = frames(row, column);
-        xn = frames(row-1, column);
+        xn2 = frames(colu, column);
+        xn = frames(row, column-1);
 
         sxn = 1;
         sxn2 = 1;
@@ -57,37 +57,28 @@ for column = 1:frameColumn
     zero_cross_rate(column) = val/frameColumn;
 end
 
-subplot(2, 2, 3);
+subplot(2, 2, 4);
 plot(zero_cross_rate);
-
 % 4 punktas
-prompt = {'Atkarpos pradzia:','Atkarpos pabaiga:'};
-dlgtitle = 'Garso iskirpimas (milisekundemis)';
-dims = [1 35];
-definput = {'0','1'};
-dialog = inputdlg(prompt,dlgtitle,dims,definput);
-input = str2double(dialog); % dialog vertes verciu i masyva
-start = input(1);
-finish = input(2);
-
-segment = ((t) >= start) & ((t) < finish);
-t2 = t(segment);
-y2 = y(segment);
-
+% prompt = {'Atkarpos pradzia:','Atkarpos pabaiga:'};
+% dlgtitle = 'Garso iskirpimas (milisekundemis)';
+% dims = [1 35];
+% definput = {'0','1'};
+% dialog = inputdlg(prompt,dlgtitle,dims,definput);
+% input = str2double(dialog); % dialog vertes verciu i masyva
+% start = input(1);
+% finish = input(2);
+% 
+% segment = ((t) >= start) & ((t) < finish);
+% t2 = t(segment);
+% y2 = y(segment);
+% 
 % subplot(2,2,4);
 % plot(t2-start, y2);
 % xlabel('Laikas, ms');
 % ylabel('s(t)');
 % title('Iskirpta garso failo atkarpa');
 % grid on;
-
-% 5 punktas
-% Apskaičiuoti ir pateikti signalo atkarpos autokoreliacijos funkcijos laiko diagramą
-% (autokoreliacijos funkcijos reikšmes normuokite)
-
-r = xcorr(y2);
-subplot(2,2,4);
-plot(r);
 
 % 6 punktas
 % findpeaks
